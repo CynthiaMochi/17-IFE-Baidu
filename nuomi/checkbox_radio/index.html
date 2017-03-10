@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .fake, .image {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        input[type=checkbox],
+        input[type=radio] {
+            display: none;
+        }
+
+        .image label,
+        .fake label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+
+        label#l-check0 {
+            width: 16px;
+            height: 16px;
+            border: #ccc 1px solid;
+        }
+        input#check0:checked + label::after {
+            content: '\2714';
+            margin: -2px auto;
+            display: block;
+            width: 10px;
+            height: 10px;
+            color: red;
+        }
+        input#check0:checked + label {
+            border: red 1px solid;
+         }
+
+        label#l-radio0,
+        label#l-radio1 {
+            width: 16px;
+            height: 16px;
+            border: #ccc 1px solid; 
+            border-radius: 50%;
+        }
+
+        input#radio0:checked + label::after,
+        input#radio1:checked + label::after {
+            content: ' ';
+            display: block;
+            margin: 5px auto;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: red;
+        }
+        
+        input#radio0:checked + label,
+        input#radio1:checked + label {
+            border: red 1px solid;
+        } 
+
+        label#l-check1 {
+            position: relative;
+            background-image: url(./item.png);
+            background-position: -23px -32px;  
+        }
+        input#check1:checked + label {
+            background-position: -58px -32px;  
+        }
+        
+        label#l-radio2,
+        label#l-radio3 {
+            position: relative;
+            background-image: url(./item.png);
+            background-position: -23px -10px;  
+        }
+        input#radio2:checked + label,
+        input#radio3:checked + label {
+            background-position: -58px -10px;  
+        }
+    </style>
+</head>
+<body>
+    <div class="fake">
+        <h3>伪元素实现</h3>
+        <p>
+            <input name="check" type="checkbox" id="check0">
+            <label for="check0" id="l-check0"></label>            
+        </p>
+        <p>
+            <input name="fradio" type="radio" id="radio0">
+            <label for="radio0" id="l-radio0"></label>
+            <input name="fradio" type="radio" id="radio1">
+            <label for="radio1" id="l-radio1"></label>        
+        </p>
+    </div>
+    <div class="image">
+        <h3>背景图实现</h3>
+        <p>
+            <input name="check" type="checkbox" id="check1">
+            <label for="check1" id="l-check1"></label>        
+        </p>
+        <p>
+            <input name="iradio" type="radio" id="radio2">
+            <label for="radio2" id="l-radio2"></label>
+            <input name="iradio" type="radio" id="radio3">
+            <label for="radio3" id="l-radio3"></label>            
+        </p>
+    </div>   
+</body>
+</html>
