@@ -12,7 +12,7 @@ function Observer(obj) {
 Observer.prototype.walk = function (obj) {
     for (var key in obj) {
         var value = obj[key]
-        if (Object.hasOwnProperty(key)) {
+        if (obj.hasOwnProperty(key)) {
             if (typeof value === "object") {
                 new Observer(value)
             }
@@ -21,7 +21,7 @@ Observer.prototype.walk = function (obj) {
     }
 }
 
-Object.prototype.convert = function (key, value) {
+Observer.prototype.convert = function (key, value) {
     Object.defineProperty(this.data, key, {
         configurable: true,
         enumrable: true,
